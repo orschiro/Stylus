@@ -1,0 +1,6 @@
+@-moz-document domain("mail.google.com") {
+.bAp.b8.UC .vh {
+    left: auto;
+    right: 0;
+}
+}
