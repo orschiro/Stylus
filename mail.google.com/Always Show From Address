@@ -1,0 +1,12 @@
+@-moz-document domain("mail.google.com")
+{
+  .aXjCH
+  {
+    display: block!important;
+  }
+
+  .bgW, .hl
+  {
+    display: none!important;
+  }
+}
