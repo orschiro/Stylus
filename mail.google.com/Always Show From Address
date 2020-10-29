@@ -1,12 +1,8 @@
-@-moz-document domain("mail.google.com")
-{
-  .aXjCH
-  {
-    display: block!important;
-  }
-
-  .bgW, .hl
-  {
-    display: none!important;
-  }
+@-moz-document domain("mail.google.com") {
+.fX.aiL { /* editable address field */
+  display: block !important;
+}
+.aoD.hl { /* read-only address field */
+  display: none !important;
+}
 }
