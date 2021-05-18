@@ -1,0 +1,17 @@
+/* ==UserStyle==
+@name           Show email next to sender's name
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("mail.google.com") {
+    /* Insert code here... */
+.hx .gD::after {
+  content: " <" attr(email) ">";
+  color: #777;
+  font-size: 9pt;
+  font-weight: normal;
+}
+}
