@@ -1,0 +1,39 @@
+// ==UserScript==
+// @name        Add email next to senders
+// @namespace   Itsnotlupus Scripts
+// @match       https://mail.google.com/*
+// @grant       none
+// @version     1.0
+// @author      -
+// @description 5/19/2021, 9:21:47 PM
+// ==/UserScript==
+
+
+const crel = (elt, obj={}) => Object.assign(document.createElement(elt), obj);
+
+function augmentNames() {
+  const spansWithEmail = document.querySelectorAll('span[email]');
+  Array.from(spansWithEmail).filter(e=>e.computedStyleMap().get('font-weight')>400).forEach(e=> {
+    const email = e.getAttribute('email');
+    if (!e.textContent?.includes(email) && !e.nextElementSibling?.textContent?.includes(email)) {
+      const emailElt = crel('span', { className: "go", textContent: email });
+      emailElt.prepend(crel('span', { ariaHidden: true, textContent: " <" }));
+      emailElt.append(crel('span', { ariaHidden: true, textContent: ">" }));
+      e.insertAdjacentElement('afterend', emailElt);
+    }
+  });
+}
+
+const scheduleAugmentNames = (() => {
+  let next;
+  return () => {
+    cancelAnimationFrame(next);
+    next = requestAnimationFrame(augmentNames);
+  };
+})();
+
+const observer = new MutationObserver(scheduleAugmentNames);
+observer.observe(document.body, {
+  subtree: true,
+  childList: true,
+});
