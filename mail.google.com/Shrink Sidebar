@@ -1,5 +1,6 @@
 .vy .tf {
-    min-width: 300px;
+    min-width: 250px;
+    overflow-x: hidden;
 }
 
 .vy .tf::-webkit-scrollbar {
