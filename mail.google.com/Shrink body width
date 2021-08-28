@@ -5,10 +5,13 @@
 @description    A new userstyle
 @author         Me
 ==/UserStyle== */
-
 @-moz-document domain("mail.google.com") {
-    /* Insert code here... */
+    /* https://github.com/orschiro/Stylus/blob/main/mail.google.com/Shrink%20body%20width */
     .hx .ii {
         width: 500px;
+    }
+
+    .hx .ii table {
+        width: 100% !important;
     }
 }
